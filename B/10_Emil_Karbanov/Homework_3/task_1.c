@@ -2,7 +2,7 @@
 
 int main () {
 	char atoz; // simvol
-	int  atoznum; // number
+	int  atoznum; // number from ascii
 
 for(atoz = 97 ; atoz <= 122; atoz++) {
 	atoznum = atoz ;
