@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main() {
-int random=303;
-printf("number=%d",random);
-printf("\n");
+float random=23.69;
+printf("number=%.2f\n",random);
 return 0;
 }
+
