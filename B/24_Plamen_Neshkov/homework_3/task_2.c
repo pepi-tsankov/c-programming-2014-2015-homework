@@ -1,27 +1,19 @@
 #include <stdio.h>
 
-int lucas(int n) {
-	if (n==0)
-		return 2;
-	if (n==1)
-		return 1;
-	
-	int x=2,y=1,z=0;
-	
-	int i;
-	for (i=2; i<=n; i++) {
-		z=x+y;
-		x=y;
-		y=z;
-	}
-
-	return z;
-}
-
 int main() {
 	int i;
-	for (i=0; i<100; i++) {
-		printf("%d, ",lucas(i));
+	long long unsigned x=2,y=1,z=0;
+	for (i=0; i<=100; i++) {
+		if (i==0)
+			z=2;
+		else if (i==1)
+			z=1;
+		else {
+			z=x+y;
+			x=y;
+			y=z;
+		}
+		printf("%llu, ", z);
 	}
 	return 0;
 }
