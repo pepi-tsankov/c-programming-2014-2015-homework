@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-	int num, revNum, rem, zeroes;
+	int num, revNum, rem;
 
 	num=5170984, revNum=0;
 	do {
