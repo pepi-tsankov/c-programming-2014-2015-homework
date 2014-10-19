@@ -15,8 +15,11 @@ int main ()
      int OriginalNumber[5] = { 5170984, 406567, 368750, 2369510, 2183293 }, ReverseNumber, br;
      for(br = 0 ; br < 5 ; br ++ ) {
          ReverseNumber = ReverseNumbers(OriginalNumber[br]);
-         printf("%7.5d      %d\n", OriginalNumber[br], ReverseNumber);
-     }      
-    
+         if(br == 1 ) {
+             printf("%6.3d       % 7.3d\n", OriginalNumber[br], ReverseNumber);
+         }else{
+             printf("%6.3d      % 7.3d\n", OriginalNumber[br], ReverseNumber);
+         }      
+    }
   return 0;
  }
