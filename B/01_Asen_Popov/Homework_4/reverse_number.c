@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-	int n=123, obr=0;
+	int n=987697, obr=0;
 	int n1=n;
 	while (n!=0) {
 		obr=obr*10;
