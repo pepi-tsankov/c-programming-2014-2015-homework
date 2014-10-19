@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-	int r=4,sp,i,k=0;
+	int r=7,sp,i,k=0;
 	for (i=1; i<=r;i++) {
 		for (sp=1; sp<=r+1-i;sp++) {
 			printf(" ");
