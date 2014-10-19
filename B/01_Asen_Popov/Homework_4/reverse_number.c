@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-	long int n=2369510, obr=0;
+	long int n=2183293, obr=0;
 	long int n1=n;
 	while (n!=0) {
 		obr=obr*10;
