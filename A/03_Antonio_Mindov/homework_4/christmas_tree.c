@@ -1,8 +1,7 @@
 #include <stdio.h>
 
-int main ()
+void PrintTree(int height)
 {
-	int height = 90;
 	int i,j;
 	int spaces;
 	for (i = 0; i < height; i += 1)
@@ -18,5 +17,12 @@ int main ()
 		}
 		printf("\n");
 	}
+}
+
+int main ()
+{
+	PrintTree(4);
+	PrintTree(7);
+	PrintTree(11);
 	return 0;
 }
