@@ -21,7 +21,7 @@ int main () {
 			scanf("%d",&arr[i]);
 		}
 	}
-	for (i = 0;i < range;i++){
+	for (i = 0;i <= range;i++){
 		int b;
 		printf("\n%d: ",i);
 		for (b = 0;b < length;b++){	
