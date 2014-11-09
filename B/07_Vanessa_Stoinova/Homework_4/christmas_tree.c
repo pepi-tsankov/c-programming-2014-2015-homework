@@ -2,6 +2,8 @@
 
 #define Green "\x1b[32m"
 
+#define Light "\x1b[1m"
+
 #define Yellow "\x1b[33m"
 
 #define Reset "\x1b[0m"
@@ -20,6 +22,7 @@ void ChristmasTree (int num)
                  printf(" ");
               }else{
                  if(Stars == 1 ) {
+                     printf(Light);
                      printf(Yellow "*");
                      break;
                  }else{
