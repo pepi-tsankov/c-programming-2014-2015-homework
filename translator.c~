@@ -1,0 +1,26 @@
+#include <stdio.h> 
+
+int rotate( char rotit [100]);
+//int decypher( char decit [100]);
+
+int main(){
+char sentence[]="xrrJfvuGrgveJhbLqvQfznetbeClanZjbU";
+printf("sentence:%s \n",sentence);
+rotate( sentence );
+
+return 0;
+}
+	
+int rotate( char rotit [100] ){
+	int j, i;
+	char rotated[100]; 
+		i=35;
+		for (j=0;j<35;j++){
+			rotated[j]=rotit[i];
+			i=i-1;
+		}
+	printf("Rotated:%1s \n", rotated[0]);
+	
+}
+//int decypher();
+
