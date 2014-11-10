@@ -22,23 +22,33 @@ void rot13(char arr[1000]){
 	printf("%s\n",arr);
 }
 
-void encryption(char char1[1000]){
-	while(scanf("%1000s", char1)) {
-		rot13(char1);
+void encryption(char enc[1000]){
+	while(scanf("%1000s", enc)) {
+		rot13(enc);
+	}
+}
+
+void decryption(char dec[1000]){
+	while(scanf("%1000s", dec)) {
+		rot13(dec);
 	}
 }
 
 int main(){
 	char b, chr[1000];
-	int number;
-	printf("Enter option: ");
-	scanf("%c",&b);
-	if(b == 'c' || b == 'd'){
-			encryption(chr);
+	printf("Enter option 'c' for encryption the text, 'd' for decryption the text or 'q' for exit the program:");
+	scanf("%c", &b);
+	while(b == 'c'){
+		printf("Input the text for ecnryption.\n");
+		encryption(chr);
 	}
-	else if(b == 'q'){ 
+	while(b == 'd'){
+		printf("Input the text for decryption.\n");
+		decryption(chr);
+	}
+	while(b == 'q'){
 		printf("You exit the program.\n");
-		return 0; 	
+		return 0;
 	}
 	return 0;
 }
