@@ -1,7 +1,7 @@
 #include <stdio.h>
-int main
+int main()
 {
-int a
+int a;
 for(a=1;a<30001;a++)
 {
 if(a%3==0 && a%7==0)

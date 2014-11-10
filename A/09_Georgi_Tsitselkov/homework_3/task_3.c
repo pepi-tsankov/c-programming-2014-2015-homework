@@ -1,11 +1,11 @@
-#include <stio.h>
+#include <stdio.h>
 int main()
 {
 int j,a,b,c,d,e,f;
 j=0;
 a=2;
 d=0;
-while(j<10)
+while(j<10);
 {
 while(d==0);
 {
