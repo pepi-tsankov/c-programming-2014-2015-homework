@@ -24,9 +24,11 @@ int main() {
 	char masiv[1000];
 	int first = 1;
 
+	printf("Enter option: ");
 	while(scanf("%1000s", masiv) && (masiv[0] != 'q')){
 		rot13(masiv, first);
 		first = 0;
+		printf("\nEnter option: ");
 	}
 	return 0;
 }
