@@ -1,16 +1,7 @@
 #include <stdio.h>
 
-int main(){
-
-	int n;
+void isMagic(int square[999][999],int n){
 	int magical = 1;
-
-	scanf("%d", &n);
-	while(n<0 && n > 999)
-		scanf("%d",&n);
-
-	int square[n][n];
-
 	int i;
 	int j;
 
@@ -66,6 +57,19 @@ int main(){
 		printf("MAGIC\n");
 	else
 		printf("NO MAGIC\n");
+}
+
+int main(){
+
+	int n;
+	scanf("%d", &n);
+
+	while(n<0 && n > 999)
+		scanf("%d",&n);
+
+	int square[999][999];
+
+	isMagic(square, n);
 
 	return 0;
 }
