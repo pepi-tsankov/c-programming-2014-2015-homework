@@ -11,14 +11,14 @@ int main(){
 
 	int i;
 	float bidoni[n][2];
-	for(i=0; i<2; i++)
-		scanf("%f %f", &bidoni[i][1], &bidoni[i][2]);
+	for(i=0; i<n; i++)
+		scanf("%f %f", &bidoni[i][0], &bidoni[i][1]);
 
 	int weight = 1;
 
 	for(i=0; i<n; i++){
-		float izm_x = bidoni[i][1] - x;
-		float izm_y = bidoni[i][2] - y;
+		float izm_x = bidoni[i][0] - x;
+		float izm_y = bidoni[i][1] - y;
 
 		izm_x = izm_x + izm_x/weight;
 		izm_y = izm_y + izm_y/weight;
