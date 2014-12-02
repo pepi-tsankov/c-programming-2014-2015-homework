@@ -48,7 +48,7 @@ int main()
     for(i = 0; i < count; ++i)
     {
         struct Vector2 MoveVector = CalculateMoveVector(&pacmanPosition,nacepinPositions[i],mass);
-        mass ++;
+        mass *= 2;
         pacmanPosition.X += MoveVector.X;
         pacmanPosition.Y += MoveVector.Y;
         PrintVector(&MoveVector);
