@@ -27,7 +27,7 @@ void PrintMovement(Vector *barrelsPositions, int barrelsCount, Vector startingPo
 		currentPosition.x += positionDifference.x;
 		currentPosition.y += positionDifference.y;
 
-		mass++;
+		mass *= 2;
 	}
 
 	printf("%.2f ", currentPosition.x);
