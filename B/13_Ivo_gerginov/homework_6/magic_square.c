@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int magic(int *sqare, int size);
+int magic(int *sqare, int *size);
 
 int main()
 {
@@ -13,7 +13,7 @@ int main()
 		printf("Enter element:\n");
 		scanf("%d", &sqr[counter]);
 	}
-	switch (magic(sqr, size))
+	switch (magic(sqr, &size))
 	{
 		case 0: printf("MAGIC\n");
 			break;
@@ -29,21 +29,21 @@ int main()
 	return 0;
 }
 
-int magic(int *square, int size)
+int magic(int *square, int *size)
 {
 	int counterX, counterY, counter3, sum1 = 0, sum2 = 0;
 	int mag;
-	mag = (size*(size*size+1))/2;
-	printf("%d\n", mag);
-	for(counterY = 0; counterY < (size*size); counterY += size)
+	mag = (*size*(*size**size+1))/2;
+	printf("marker0");
+	for(counterY = 0; counterY < (*size**size); counterY += *size)
 	{
 		printf("marker1");
-		for(counterX = counterY; counterX < size; counterX++)
+		for(counterX = counterY; counterX < *size; counterX++)
 		{
 			sum1 += square[counterX];
-			if(counterX < size)
+			if(counterX < *size)
 			{
-				for(counter3 = counterX; counter3 = (size*size); counter3 += size)
+				for(counter3 = counterX; counter3 = (*size**size); counter3 += *size)
 				{
 					sum2 += square[counter3];
 				}
@@ -62,7 +62,7 @@ int magic(int *square, int size)
 		printf("marker3");
 	}
 	sum1 = 0;sum2 = 0;
-	for(counter3 = 0; counter3 < (size*size);counter3 += (size + 1))
+	for(counter3 = 0; counter3 < (*size**size);counter3 += (*size + 1))
 	{
 		sum1 += square[counter3];
 	}
@@ -71,7 +71,7 @@ int magic(int *square, int size)
 		return 3;
 	}
 	printf("marker4");
-	for(counter3 = size; counter3 < (size*size); counter3 += (size - 1))
+	for(counter3 = *size; counter3 < (*size**size); counter3 += (*size - 1))
 	{
 		sum2 += square[counter3]; 
 	}
