@@ -25,4 +25,9 @@ int main(){
 	printf("\n");
 	}
 	return 0;
+<<<<<<< HEAD
 	}
+=======
+	
+}
+>>>>>>> 55ac69ace3dc0ee95f55a252523f50e76fceaabe
