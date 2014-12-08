@@ -44,4 +44,5 @@ scanf("%s",t);
 rod13(t);
 }
 }
+return 0;
 }
