@@ -37,9 +37,7 @@ int main()
 		vector_push_back(&v, i + 1);
 
 		if(i % 5 == 0)
-		{
 			printf("vector_index: %d, vector_size: %d\n", v.index, v.size); //to demonstrate that the size doubles
-		}
 	}
 
 	printf("\n");
@@ -50,9 +48,7 @@ int main()
 		printf("Pop: %d\n", vector_pop_back(&v));
 
 		if(i % 5 == 0)
-		{
 			printf("vector_index: %d, vector_size: %d\n", v.index, v.size); // to demonstrate that the size reduces
-		}
 	}
 
 	return 0;
@@ -107,15 +103,15 @@ void transfer_data(int *old_data, int old_data_size, int *new_data)
 	}
 }
 
-int vector_resize(struct vector_t *v)		//returns: 0 if it worked out OK
-{											//-1 if something went wrong
+//returns: 0 if it worked out OK and -1 if something went wrong
+int vector_resize(struct vector_t *v)		
 	if (v->index == v->size)				
 	{
-		v->size *= 2;
+		v->size *= 2; //double size
 	}
 	else if(v->index <= v->size / 2)
 	{
-		v->size /= 2;
+		v->size /= 2; //reduce size
 	}
 
 	int *new_data = (int*)malloc(sizeof(int) * v->size);
