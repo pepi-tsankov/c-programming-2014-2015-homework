@@ -51,6 +51,8 @@ int main()
 			printf("vector_index: %d, vector_size: %d\n", v.index, v.size); // to demonstrate that the size reduces
 	}
 
+	vector_destroy(&v);
+
 	return 0;
 }
 
@@ -104,7 +106,8 @@ void transfer_data(int *old_data, int old_data_size, int *new_data)
 }
 
 //returns: 0 if it worked out OK and -1 if something went wrong
-int vector_resize(struct vector_t *v)		
+int vector_resize(struct vector_t *v)	
+{	
 	if (v->index == v->size)				
 	{
 		v->size *= 2; //double size
