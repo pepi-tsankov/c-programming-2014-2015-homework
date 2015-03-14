@@ -100,22 +100,16 @@ void transfer_data(int *old_data, int old_data_size, int *new_data)
 {
 	int i;
 	for(i = 0; i < old_data_size; ++i)
-	{
 		new_data[i] = old_data[i];
-	}
 }
 
 //returns: 0 if it worked out OK and -1 if something went wrong
 int vector_resize(struct vector_t *v)	
 {	
 	if (v->index == v->size)				
-	{
 		v->size *= 2; //double size
-	}
 	else if(v->index <= v->size / 2)
-	{
 		v->size /= 2; //reduce size
-	}
 
 	int *new_data = (int*)malloc(sizeof(int) * v->size);
 
