@@ -17,6 +17,8 @@ struct vector_t {
 void vector_init(struct vector_t*);
 void vector_destroy(struct vector_t*);
 int vector_get_size(struct vector_t);
+int vector_increase_size(struct vector_t*);
+int vector_reduce_size(struct vector_t*);
 int vector_resize(struct vector_t*);
 void transfer_data(int*, int, int*);
 int vector_at(struct vector_t, int index);
@@ -41,7 +43,7 @@ int main()
 	}
 
 	printf("\n");
-	printf("Poping out of the vector:\n");
+	printf("Popping out of the vector:\n");
 
 	for (i = 0; i < 20; ++i)
 	{
@@ -74,7 +76,7 @@ int vector_get_size(struct vector_t v) {
 
 void vector_push_back(struct vector_t* v, int value) {
 	if (v->index == v->size)
-		vector_resize(v);
+		vector_increase_size(v);
 
 	v->data[v->index++] = value;
 }
@@ -91,7 +93,7 @@ int vector_pop_back(struct vector_t* v) {
 		return INT_MIN; //for error returns the minimum value of int, because it is the least possible number to actually be in the vector
 
 	if(v->index <= v->size / 2 && v->size > STARTING_SIZE)
-		vector_resize(v);
+		vector_reduce_size(v);
 
 	return v->data[--v->index];
 }
@@ -103,14 +105,31 @@ void transfer_data(int *old_data, int old_data_size, int *new_data)
 		new_data[i] = old_data[i];
 }
 
+//returns: 0 if it worked out OK and -1 if something went wrongZ
+int vector_increase_size(struct vector_t *v)
+{
+	v->size *= 2;
+
+	if(vector_resize(v) == -1)
+		return -1;
+
+	return 0;
+}
+
+//returns: 0 if it worked out OK and -1 if something went wrong
+int vector_reduce_size(struct vector_t *v)
+{
+	v->size /= 2;
+
+	if(vector_resize(v) == -1)
+		return -1;
+
+	return 0;
+}
+
 //returns: 0 if it worked out OK and -1 if something went wrong
 int vector_resize(struct vector_t *v)	
 {	
-	if (v->index == v->size)				
-		v->size *= 2; //double size
-	else if(v->index <= v->size / 2)
-		v->size /= 2; //reduce size
-
 	int *new_data = (int*)malloc(sizeof(int) * v->size);
 
 	transfer_data(v->data, v->size, new_data);
