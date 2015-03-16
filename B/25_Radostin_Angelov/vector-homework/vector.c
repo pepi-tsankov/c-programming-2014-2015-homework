@@ -95,6 +95,8 @@ int vector_pop_back(struct vector_t* v) {
     return -1;
 }
 
+//returns 0 or -1, based on wether the resizing succeeded or not
+
 int vector_resize(struct vector_t* v)
 {
     if(v->index == v->size)
