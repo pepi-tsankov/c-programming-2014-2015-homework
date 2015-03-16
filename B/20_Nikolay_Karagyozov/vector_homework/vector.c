@@ -27,7 +27,6 @@ void vector_push_back(struct vector_t*, int value);
 int vector_pop_back(struct vector_t*);
 
 int main() {
-
     struct vector_t vector;
     vector_init(&vector);
     vector_push_back(&vector, 1);
