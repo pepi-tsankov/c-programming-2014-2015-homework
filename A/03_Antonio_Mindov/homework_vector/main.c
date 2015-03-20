@@ -14,14 +14,17 @@ struct vector_t {
 void vector_init(struct vector_t*);
 void vector_destroy(struct vector_t*);
 int vector_get_size(struct vector_t);
-int vector_resize(struct vector_t* v,int side);
-int vector_at(struct vector_t, int index);
-void vector_push_back(struct vector_t*, int value);
+int vector_resize(struct vector_t* v,int);
+int vector_at(struct vector_t, int);
+void vector_push_back(struct vector_t*, int);
 int vector_pop_back(struct vector_t*);
+void vector_copy(struct vector_t*, struct vector_t*);
 
 int main() {
-    struct vector_t myVector;
+    struct vector_t myVector, secondVector;
+
     vector_init(&myVector);
+
     vector_push_back(&myVector,3);
     vector_push_back(&myVector,1);
     vector_push_back(&myVector,4);
@@ -30,6 +33,10 @@ int main() {
     vector_push_back(&myVector,9);
     vector_push_back(&myVector,2);
     vector_push_back(&myVector,6);
+
+    vector_copy(&myVector, &secondVector);
+    printf("Size of copied vector: %d\n", vector_get_size(secondVector));
+
     printf("Size: %d\n", vector_get_size(myVector));
     printf("Pop: %d\n", vector_pop_back(&myVector));
     printf("Pop: %d\n", vector_pop_back(&myVector));
@@ -41,6 +48,7 @@ int main() {
     printf("Pop: %d\n", vector_pop_back(&myVector));
     printf("Pop: %d\n", vector_pop_back(&myVector));
     printf("Size: %d\n", vector_get_size(myVector));
+
     vector_destroy(&myVector);
     return 0;
 }
@@ -117,6 +125,17 @@ int vector_resize(struct vector_t* v, int makeLower)
     {
         v->data[i] = oldData[i];
     }
-    
+
     return v->size;
+}
+
+void vector_copy(struct vector_t* from, struct vector_t* to)
+{
+    vector_init(to);
+    int i;
+
+    for(i=0; i<vector_get_size(*from); i++)
+    {
+        vector_push_back(to,vector_at(*from,i));
+    }
 }
