@@ -24,11 +24,18 @@ void transfer_data(int*, int, int*);
 int vector_at(struct vector_t, int index);
 void vector_push_back(struct vector_t*, int value);
 int vector_pop_back(struct vector_t*);
+void vector_copy(struct vector_t *from, struct vector_t *to);
 
 int main() 
 {
 	struct vector_t v;
 	vector_init(&v);
+
+	vector_push_back(&v, 3);
+	vector_push_back(&v, 5);
+
+	struct vector_t v2;
+	vector_copy(&v, &v2);
 
 	printf("\n");
 	printf("Pushing into the vector:\n");
@@ -36,24 +43,25 @@ int main()
 	int i;
 	for (i = 0; i < 20; ++i)
 	{
-		vector_push_back(&v, i + 1);
+		vector_push_back(&v2, i + 1);
 
 		if(i % 5 == 0)
-			printf("vector_index: %d, vector_size: %d\n", v.index, v.size); //to demonstrate that the size doubles
+			printf("vector_index: %d, vector_size: %d\n", v2.index, v2.size); //to demonstrate that the size doubles
 	}
 
 	printf("\n");
 	printf("Popping out of the vector:\n");
 
-	for (i = 0; i < 20; ++i)
+	for (i = 0; i < 22; ++i)
 	{
-		printf("Pop: %d\n", vector_pop_back(&v));
+		printf("Pop: %d\n", vector_pop_back(&v2));
 
 		if(i % 5 == 0)
-			printf("vector_index: %d, vector_size: %d\n", v.index, v.size); // to demonstrate that the size reduces
+			printf("vector_index: %d, vector_size: %d\n", v2.index, v2.size); // to demonstrate that the size reduces
 	}
 
 	vector_destroy(&v);
+	vector_destroy(&v2);
 
 	return 0;
 }
@@ -141,4 +149,12 @@ int vector_resize(struct vector_t *v)
 		return -1;
 
 	return 0;
+}
+
+void vector_copy(struct vector_t *from, struct vector_t *to)
+{
+	to->data = (int*)malloc(from->size * sizeof(int));
+	transfer_data(from->data, from->size, to->data);
+	to->size = from->size;
+	to->index = from->index;
 }
